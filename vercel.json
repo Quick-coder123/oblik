@@ -1,4 +1,37 @@
 {
+  "version": 2,
+  "builds": [
+    {
+      "src": "index.html",
+      "use": "@vercel/static"
+    },
+    {
+      "src": "api/add-client.js",
+      "use": "@vercel/node"
+    }
+  ],
+  "routes": [
+    {
+      "src": "/api/(.*)",
+      "dest": "/api/$1"
+    },
+    {
+      "src": "/archive",
+      "dest": "/archive.html"
+    },
+    {
+      "src": "/statistics",
+      "dest": "/statistics.html"
+    },
+    {
+      "src": "/(.*\\.(js|css|html|json|ico|png|jpg|jpeg|gif|svg))",
+      "dest": "/$1"
+    },
+    {
+      "src": "/(.*)",
+      "dest": "/index.html"
+    }
+  ],
   "functions": {
     "api/add-client.js": {
       "runtime": "nodejs18.x"
