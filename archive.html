@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Архів клієнтів - Облік клієнтів</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    .nav-links {
+      display: flex;
+      gap: 1rem;
+      margin-bottom: 1rem;
+    }
+    .nav-link {
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 500;
+      padding: 0.5rem 1rem;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+    }
+    .nav-link:hover {
+      background-color: #f0f8f0;
+      text-decoration: underline;
+    }
+    .archive-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .archive-stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .stat-card {
+      background: #fff;
+      padding: 1rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .stat-number {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: #2d6a4f;
+    }
+    .stat-label {
+      color: #666;
+      font-size: 0.85rem;
+      margin-top: 0.3rem;
+    }
+    .empty-archive {
+      text-align: center;
+      color: #666;
+      font-style: italic;
+      padding: 2rem;
+      background: #f9f9f9;
+      border-radius: 8px;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📁 Архів клієнтів</h1>
+  </header>
+  
+  <main>
+    <div class="nav-links">
+      <a href="index.html" class="nav-link">← Головна</a>
+      <a href="statistics.html" class="nav-link">📊 Статистика</a>
+    </div>
+    
+    <div class="archive-header">
+      <h2>Архівні записи</h2>
+      <div style="color: #666; font-size: 0.9rem;">
+        Клієнти з активацією, виданими картами та всіма документами
+      </div>
+    </div>
+    
+    <div class="archive-stats" id="archiveStats">
+      <!-- Сюди будуть додані картки зі статистикою архіву -->
+    </div>
+    
+    <div class="full-width-card">
+      <div id="archiveTable">
+        <!-- Сюди буде додана таблиця архівних записів -->
+      </div>
+    </div>
+  </main>
+
+  <script src="supabase-config.js"></script>
+  <script src="archive.js"></script>
+</body>
+</html>

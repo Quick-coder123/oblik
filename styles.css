@@ -1,0 +1,307 @@
+body { font-family: 'Segoe UI', Arial, sans-serif; background: #f7f9fa; margin: 0; padding: 0; }
+header { background: #2d6a4f; color: #fff; padding: 1rem; text-align: center; box-shadow: 0 2px 4px rgba(0,0,0,0.1); }
+main { max-width: 1400px; margin: 2rem auto; padding: 1rem; }
+
+/* Верхня секція з картками */
+.top-section { display: grid; grid-template-columns: 1fr 1fr; gap: 2rem; margin-bottom: 2rem; }
+
+/* Картки */
+.card { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); }
+.full-width-card { background: #fff; padding: 1.5rem; border-radius: 8px; box-shadow: 0 2px 8px rgba(0,0,0,0.1); width: 100%; box-sizing: border-box; }
+
+h2 { color: #2d6a4f; margin-top: 0; margin-bottom: 1rem; }
+
+/* Форма */
+form { display: flex; flex-wrap: wrap; gap: 1rem; }
+form input, form button { padding: 0.5rem; font-size: 1rem; border-radius: 4px; border: 1px solid #ccc; }
+form input { flex: 1; min-width: 200px; }
+form button { background: #2d6a4f; color: #fff; border: none; cursor: pointer; padding: 0.5rem 1.5rem; }
+form button:hover { background: #1e4d36; }
+
+.edit-btn { 
+  background: #1976d2; 
+  color: #fff; 
+  border: none; 
+  padding: 0.3rem; 
+  border-radius: 50%; 
+  cursor: pointer; 
+  font-size: 0.8rem; 
+  width: 26px; 
+  height: 26px; 
+  display: flex; 
+  align-items: center; 
+  justify-content: center;
+  transition: all 0.2s;
+}
+.edit-btn:hover { background: #1565c0; transform: scale(1.1); }
+
+/* Таблиця на всю ширину */
+#clientsTable { overflow-x: auto; }
+table { 
+  width: 100%; 
+  border-collapse: collapse; 
+  margin-bottom: 2rem; 
+  font-size: 0.75rem;
+}
+
+/* Спеціальне стилізування для таблиці статистики */
+#statsTables { 
+  overflow-x: auto; 
+  margin-bottom: 2rem;
+}
+#statsTables table { 
+  min-width: 600px; 
+  font-size: 0.85rem;
+  white-space: nowrap;
+}
+#statsTables th { 
+  background: #2d6a4f; 
+  color: #fff; 
+  padding: 0.6rem 0.4rem;
+  text-align: center;
+  font-size: 0.8rem;
+}
+#statsTables td {
+  padding: 0.5rem 0.4rem;
+  text-align: center;
+}
+#statsTables td:first-child {
+  text-align: left;
+  min-width: 150px;
+  font-weight: 500;
+}
+#statsTables tr:hover {
+  background: #f0f8f0;
+}
+thead { background: #95d5b2; }
+th, td { 
+  border: 1px solid #ccc; 
+  padding: 0.4rem 0.25rem; 
+  text-align: left; 
+  white-space: nowrap; 
+  vertical-align: top;
+}
+th { 
+  font-weight: 600; 
+  font-size: 0.7rem;
+  padding: 0.5rem 0.25rem;
+}
+tr:nth-child(even) { background: #f9f9f9; }
+tr:hover { background: #f0f8f0; }
+td:last-child { text-align: center; }
+
+/* Оптимізація ширини колонок */
+th:nth-child(1), td:nth-child(1) { max-width: 140px; overflow: hidden; text-overflow: ellipsis; } /* ПІБ */
+th:nth-child(2), td:nth-child(2) { width: 80px; font-size: 0.7rem; } /* ІПН */
+th:nth-child(3), td:nth-child(3) { max-width: 120px; overflow: hidden; text-overflow: ellipsis; } /* Організація */
+th:nth-child(4), td:nth-child(4) { width: 70px; font-size: 0.7rem; } /* Дата відкриття */
+th:nth-child(5), td:nth-child(5) { width: 70px; font-size: 0.7rem; } /* Дата активації */
+th:nth-child(6), td:nth-child(6) { width: 90px; } /* Статус карти */
+th:nth-child(7), td:nth-child(7) { width: 85px; } /* Документи */
+th:nth-child(8), td:nth-child(8) { max-width: 120px; overflow: hidden; text-overflow: ellipsis; white-space: normal; } /* Коментарі */
+th:nth-child(9), td:nth-child(9) { width: 35px; } /* Дії */
+
+/* Колонка документів */
+.documents-cell { 
+  font-size: 0.65rem; 
+  line-height: 1.2; 
+  white-space: normal; 
+  max-width: 85px;
+}
+.documents-cell div { margin: 1px 0; }
+.icon-check { color: #4caf50; font-weight: bold; font-size: 1em; }
+.icon-cross { color: #f44336; font-weight: bold; font-size: 1em; }
+
+/* Статуси карт */
+.card-status {
+  padding: 0.2rem 0.4rem;
+  border-radius: 8px;
+  font-size: 0.65rem;
+  font-weight: 500;
+  white-space: nowrap;
+  display: inline-block;
+}
+.status-manufacturing {
+  background: #fff3cd;
+  color: #856404;
+  border: 1px solid #ffeaa7;
+}
+.status-branch {
+  background: #cce5ff;
+  color: #0056b3;
+  border: 1px solid #66b3ff;
+}
+.status-organization {
+  background: #e2e3e5;
+  color: #495057;
+  border: 1px solid #ced4da;
+}
+.status-issued {
+  background: #d4edda;
+  color: #155724;
+  border: 1px solid #c3e6cb;
+}
+
+/* Модальне вікно */
+.modal { 
+  display: none; 
+  position: fixed; 
+  z-index: 1000; 
+  left: 0; 
+  top: 0; 
+  width: 100%; 
+  height: 100%; 
+  background-color: rgba(0,0,0,0.5); 
+}
+.modal-content { 
+  background-color: #fff; 
+  margin: 3% auto; 
+  padding: 0; 
+  border-radius: 8px; 
+  width: 95%; 
+  max-width: 600px; 
+  max-height: 90vh;
+  overflow-y: auto;
+  box-shadow: 0 4px 20px rgba(0,0,0,0.3);
+}
+.modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 1.5rem;
+  border-bottom: 1px solid #e9ecef;
+  background: #f8f9fa;
+  border-radius: 8px 8px 0 0;
+}
+.modal-header h2 {
+  margin: 0;
+  color: #2d6a4f;
+  font-size: 1.1rem;
+}
+.close { 
+  color: #aaa; 
+  font-size: 20px; 
+  font-weight: bold; 
+  cursor: pointer; 
+  padding: 0.2rem;
+  border-radius: 50%;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s;
+}
+.close:hover { color: #000; background: #e9ecef; }
+
+#editForm { 
+  padding: 1.5rem; 
+  display: flex; 
+  flex-direction: column; 
+  gap: 1rem; 
+}
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+.form-group label {
+  font-weight: 500;
+  color: #333;
+  font-size: 0.85rem;
+}
+#editForm input, #editForm textarea, #editForm select { 
+  width: 100%; 
+  box-sizing: border-box; 
+  padding: 0.6rem; 
+  border: 1px solid #ddd; 
+  border-radius: 4px; 
+  font-size: 0.9rem;
+  transition: border-color 0.2s;
+}
+#editForm input:focus, #editForm textarea:focus, #editForm select:focus {
+  outline: none;
+  border-color: #2d6a4f;
+}
+#editForm textarea {
+  resize: vertical;
+  font-family: inherit;
+  min-height: 60px;
+}
+.checkbox-group { 
+  display: flex; 
+  flex-wrap: wrap;
+  gap: 0.8rem; 
+  padding: 0.8rem; 
+  background: #f8f9fa; 
+  border-radius: 4px; 
+  border: 1px solid #ddd;
+}
+.checkbox-item {
+  display: flex !important;
+  flex-direction: row !important;
+  align-items: center;
+  gap: 0.4rem;
+  font-size: 0.85rem;
+  cursor: pointer;
+  white-space: nowrap;
+}
+.checkbox-item input[type="checkbox"] { 
+  width: 16px !important; 
+  height: 16px;
+  margin: 0;
+}
+.modal-buttons { 
+  display: flex; 
+  gap: 0.8rem; 
+  justify-content: flex-end; 
+  padding-top: 1rem;
+  border-top: 1px solid #e9ecef;
+}
+.btn-primary, .btn-secondary {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.btn-primary {
+  background: #2d6a4f;
+  color: #fff;
+}
+.btn-primary:hover {
+  background: #1e4d36;
+}
+.btn-secondary {
+  background: #6c757d;
+  color: #fff;
+}
+.btn-secondary:hover {
+  background: #545b62;
+}
+
+/* Адаптивність */
+@media (max-width: 1400px) { 
+  table { font-size: 0.7rem; }
+  th, td { padding: 0.3rem 0.2rem; }
+  th { font-size: 0.65rem; }
+  .documents-cell { font-size: 0.6rem; }
+  .card-status { font-size: 0.6rem; padding: 0.15rem 0.3rem; }
+  .edit-btn { width: 22px; height: 22px; font-size: 0.7rem; }
+}
+
+@media (max-width: 1200px) { 
+  main { padding: 0.5rem; }
+  .top-section { grid-template-columns: 1fr; }
+}
+
+@media (max-width: 800px) { 
+  table, th, td { font-size: 0.9rem; padding: 0.5rem 0.3rem; } 
+  form { flex-direction: column; } 
+  form input { min-width: auto; }
+  .modal-content { margin: 5% auto; width: 95%; } 
+  .checkbox-group { flex-direction: column; align-items: flex-start; } 
+  .documents-cell { font-size: 0.8rem; min-width: 100px; }
+  #clientsTable { font-size: 0.85rem; }
+}

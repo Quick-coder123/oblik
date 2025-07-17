@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Повна статистика - Облік клієнтів</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+  <style>
+    .nav-link {
+      display: inline-block;
+      margin-bottom: 1rem;
+      color: #1976d2;
+      text-decoration: none;
+      font-weight: 500;
+    }
+    .nav-link:hover {
+      text-decoration: underline;
+    }
+    .stats-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 2rem;
+    }
+    .stats-summary {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+      gap: 1rem;
+      margin-bottom: 2rem;
+    }
+    .summary-card {
+      background: #fff;
+      padding: 1.5rem;
+      border-radius: 8px;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      text-align: center;
+    }
+    .summary-number {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #2d6a4f;
+    }
+    .summary-label {
+      color: #666;
+      font-size: 0.9rem;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>📊 Повна статистика</h1>
+  </header>
+  
+  <main>
+    <a href="index.html" class="nav-link">← Повернутися до головної</a>
+    
+    <div class="stats-header">
+      <h2>Детальна статистика по організаціях</h2>
+    </div>
+    
+    <div class="stats-summary" id="summaryCards">
+      <!-- Сюди будуть додані картки з загальною статистикою -->
+    </div>
+    
+    <div class="full-width-card">
+      <div id="fullStatsTables">
+        <!-- Сюди буде додана повна таблиця статистики -->
+      </div>
+    </div>
+  </main>
+
+  <script src="supabase-config.js"></script>
+  <script src="statistics.js"></script>
+</body>
+</html>

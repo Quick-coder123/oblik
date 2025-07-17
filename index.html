@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Облік рахунків та активацій</title>
+  <link rel="stylesheet" href="styles.css">
+  <!-- Supabase -->
+  <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+</head>E html>
+<html lang="uk">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Облік рахунків</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <h1>Облік рахунків та активацій</h1>
+  </header>
+  <main>
+    <div class="top-section">
+      <section id="add-client" class="card">
+        <h2>Додати клієнта</h2>
+        <form id="clientForm">
+          <input type="text" name="name" placeholder="ПІБ співробітника" required>
+          <input type="text" name="inn" placeholder="ІПН" required>
+          <input type="text" name="org" placeholder="Організація" required>
+          <input type="text" name="comments" placeholder="Коментарі">
+          <button type="submit">Додати</button>
+        </form>
+      </section>
+      
+      <section id="stats" class="card">
+        <h2>Статистика</h2>
+        <div id="statsTables"></div>
+      </section>
+    </div>
+    
+    <section id="clients" class="full-width-card">
+      <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1rem;">
+        <h2>Список клієнтів</h2>
+        <div style="display: flex; gap: 1rem;">
+          <a href="statistics.html" style="color: #1976d2; text-decoration: none; font-weight: 500;">📊 Статистика</a>
+          <a href="archive.html" style="color: #1976d2; text-decoration: none; font-weight: 500;">📁 Архів</a>
+        </div>
+      </div>
+      <div id="clientsTable"></div>
+    </section>
+  </main>
+
+  <!-- Модальне вікно для редагування -->
+  <div id="editModal" class="modal">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h2>Редагувати клієнта</h2>
+        <span class="close">&times;</span>
+      </div>
+      <form id="editForm">
+        <div class="form-group">
+          <label>ПІБ співробітника</label>
+          <input type="text" id="editName" required>
+        </div>
+        <div class="form-group">
+          <label>ІПН</label>
+          <input type="text" id="editInn" required>
+        </div>
+        <div class="form-group">
+          <label>Організація</label>
+          <input type="text" id="editOrg" required>
+        </div>
+        <div class="form-group">
+          <label>Дата активації</label>
+          <input type="date" id="editActivationDate">
+        </div>
+        <div class="form-group">
+          <label>Статус карти</label>
+          <select id="editCardStatus">
+            <option value="На виготовленні">На виготовленні</option>
+            <option value="На відділенні">На відділенні</option>
+            <option value="На організації">На організації</option>
+            <option value="Видана">Видана</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label>Документи</label>
+          <div class="checkbox-group">
+            <label class="checkbox-item">
+              <input type="checkbox" id="editPassport">
+              <span>Паспорт</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="editSurvey">
+              <span>Опитувальник</span>
+            </label>
+            <label class="checkbox-item">
+              <input type="checkbox" id="editContract">
+              <span>Договір</span>
+            </label>
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Коментарі</label>
+          <textarea id="editComments" rows="3"></textarea>
+        </div>
+        <div class="modal-buttons">
+          <button type="submit" class="btn-primary">Зберегти</button>
+          <button type="button" onclick="closeEditModal()" class="btn-secondary">Скасувати</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <script src="supabase-config.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>
